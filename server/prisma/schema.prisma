@@ -1,0 +1,146 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  CASHIER
+  MANAGER
+  ADMIN
+}
+
+enum MenuItemCategory {
+  ENTREE
+  SIDE
+  DESSERT
+  DRINK
+  TOPPING
+}
+
+enum OrderStatus {
+  OPEN
+  PAID
+  VOID
+}
+
+enum PaymentMethod {
+  MOCK_CARD
+  CASH
+  OTHER
+}
+
+model User {
+  id           String    @id @default(uuid())
+  username     String    @unique
+  passwordHash String
+  role         UserRole  @default(CASHIER)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  
+  // Relations
+  orders       Order[]
+  auditLogs    AuditLog[]
+
+  @@map("users")
+}
+
+model MenuItem {
+  id          String            @id @default(uuid())
+  name        String
+  category    MenuItemCategory
+  basePrice   Float
+  optionsJson String            // JSON string for sizes, flavors, etc.
+  isTopping   Boolean           @default(false)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  
+  // Relations
+  inventory         Inventory?
+  orderItems        OrderItem[]
+  orderItemToppings OrderItemTopping[]
+
+  @@map("menu_items")
+}
+
+model Inventory {
+  id            String   @id @default(uuid())
+  menuItemId    String   @unique
+  quantityOnHand Int     @default(0)
+  reorderLevel  Int      @default(0)
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id], onDelete: Cascade)
+
+  @@map("inventory")
+}
+
+model Order {
+  id            String         @id @default(uuid())
+  userId        String
+  subtotal      Float          @default(0)
+  tax           Float          @default(0)
+  total         Float          @default(0)
+  status        OrderStatus    @default(OPEN)
+  paymentMethod PaymentMethod?
+  createdAt     DateTime       @default(now())
+  
+  // Relations
+  user       User        @relation(fields: [userId], references: [id])
+  orderItems OrderItem[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id         String  @id @default(uuid())
+  orderId    String
+  menuItemId String
+  size       String?
+  flavor     String?
+  quantity   Int     @default(1)
+  basePrice  Float
+  lineTotal  Float
+  
+  // Relations
+  order    Order                @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  menuItem MenuItem             @relation(fields: [menuItemId], references: [id])
+  toppings OrderItemTopping[]
+
+  @@map("order_items")
+}
+
+model OrderItemTopping {
+  id             String @id @default(uuid())
+  orderItemId    String
+  toppingItemId  String
+  priceDelta     Float
+  
+  // Relations
+  orderItem    OrderItem @relation(fields: [orderItemId], references: [id], onDelete: Cascade)
+  toppingItem  MenuItem  @relation(fields: [toppingItemId], references: [id])
+
+  @@map("order_item_toppings")
+}
+
+model AuditLog {
+  id       String   @id @default(uuid())
+  userId   String
+  action   String   // 'LOGIN','CREATE_ORDER','ADJUST_STOCK','CHECKOUT','VOID'
+  entity   String   // 'Inventory','Order','User'
+  entityId String
+  metaJson String   // JSON string
+  createdAt DateTime @default(now())
+  
+  // Relations
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("audit_logs")
+}

@@ -1,0 +1,33 @@
+{
+  "name": "pos-register",
+  "version": "1.0.0",
+  "description": "POS Register + Inventory System - Full-stack demo with Angular + Node.js",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:start\"",
+    "server:dev": "npm run dev --workspace=server",
+    "client:start": "npm start --workspace=client",
+    "client:showcase": "npm run showcase --workspace=client",
+    "client:build": "npm run build --workspace=client",
+    "client:build:showcase": "npm run build:showcase --workspace=client",
+    "db:generate": "npm run db:generate --workspace=server",
+    "db:migrate": "npm run db:migrate --workspace=server",
+    "db:seed": "npm run db:seed --workspace=server",
+    "format": "prettier --write \"**/*.{js,ts,json,md}\"",
+    "lint": "npm run lint --workspace=client && npm run lint --workspace=server",
+    "test": "npm test --workspace=client && npm test --workspace=server",
+    "install:all": "npm install && npm install --workspace=client && npm install --workspace=server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.1.1"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
+  }
+}
