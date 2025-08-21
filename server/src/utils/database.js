@@ -33,11 +33,20 @@ class MockPrismaClient {
         role: 'CASHIER',
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        id: '3',
+        username: 'manager',
+        passwordHash: '$argon2id$v=19$m=65536,t=3,p=4$hashedpassword',
+        role: 'MANAGER',
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ];
 
-    // Add menu items
+    // Add comprehensive menu items
     this._menuItems = [
+      // Entrées
       {
         id: '1',
         name: 'Hamburger',
@@ -57,9 +66,281 @@ class MockPrismaClient {
         isTopping: false,
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        id: '3',
+        name: 'Hot Dog',
+        category: 'ENTREE',
+        basePrice: 6.99,
+        optionsJson: '{}',
+        isTopping: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      // Sides
+      {
+        id: '4',
+        name: 'Fries (Regular)',
+        category: 'SIDE',
+        basePrice: 3.99,
+        optionsJson: '{}',
+        isTopping: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '5',
+        name: 'Fries (Extra Large)',
+        category: 'SIDE',
+        basePrice: 5.99,
+        optionsJson: '{}',
+        isTopping: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '6',
+        name: 'Poutine',
+        category: 'SIDE',
+        basePrice: 7.99,
+        optionsJson: '{}',
+        isTopping: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      // Desserts
+      {
+        id: '7',
+        name: 'Ice Cream',
+        category: 'DESSERT',
+        basePrice: 4.99,
+        optionsJson: '{"flavors": ["Chocolate", "Vanilla", "Strawberry"]}',
+        isTopping: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      // Drinks
+      {
+        id: '8',
+        name: 'Milkshake',
+        category: 'DRINK',
+        basePrice: 4.99,
+        optionsJson: '{"sizes": ["Small", "Medium", "Large"], "flavors": ["Chocolate", "Vanilla", "Strawberry"], "sizePrices": {"Small": 4.99, "Medium": 5.99, "Large": 6.99}}',
+        isTopping: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '9',
+        name: 'Fountain Drink',
+        category: 'DRINK',
+        basePrice: 2.99,
+        optionsJson: '{"sizes": ["Small", "Medium", "Large"], "sizePrices": {"Small": 2.99, "Medium": 3.49, "Large": 3.99}}',
+        isTopping: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      // Toppings
+      {
+        id: '10',
+        name: 'Extra Patty',
+        category: 'TOPPING',
+        basePrice: 3.00,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '11',
+        name: 'Extra Dog',
+        category: 'TOPPING',
+        basePrice: 2.50,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '12',
+        name: 'Mayo',
+        category: 'TOPPING',
+        basePrice: 0.25,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '13',
+        name: 'Ketchup',
+        category: 'TOPPING',
+        basePrice: 0.25,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '14',
+        name: 'Mustard',
+        category: 'TOPPING',
+        basePrice: 0.25,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '15',
+        name: 'Lettuce',
+        category: 'TOPPING',
+        basePrice: 0.50,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '16',
+        name: 'Pickles',
+        category: 'TOPPING',
+        basePrice: 0.50,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '17',
+        name: 'Tomatoes',
+        category: 'TOPPING',
+        basePrice: 0.75,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '18',
+        name: 'Grilled Onions',
+        category: 'TOPPING',
+        basePrice: 0.75,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '19',
+        name: 'Onions',
+        category: 'TOPPING',
+        basePrice: 0.50,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '20',
+        name: 'Jalapeño Peppers',
+        category: 'TOPPING',
+        basePrice: 0.75,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '21',
+        name: 'Bacon',
+        category: 'TOPPING',
+        basePrice: 2.00,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '22',
+        name: 'Extra Cheese',
+        category: 'TOPPING',
+        basePrice: 1.00,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '23',
+        name: 'Blue Cheese',
+        category: 'TOPPING',
+        basePrice: 1.25,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '24',
+        name: 'Habanero Peppers',
+        category: 'TOPPING',
+        basePrice: 0.75,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '25',
+        name: 'Bell Peppers',
+        category: 'TOPPING',
+        basePrice: 0.75,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '26',
+        name: 'Bar-B-Q Sauce',
+        category: 'TOPPING',
+        basePrice: 0.25,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '27',
+        name: 'Hot Sauce',
+        category: 'TOPPING',
+        basePrice: 0.25,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: '28',
+        name: 'Extra Hot Sauce',
+        category: 'TOPPING',
+        basePrice: 0.25,
+        optionsJson: '{}',
+        isTopping: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
-      // More items will be added in the full seed
     ];
+
+    // Create inventory for all menu items
+    this._inventory = this._menuItems.map((item, index) => ({
+      id: `inv-${index + 1}`,
+      menuItemId: item.id,
+      quantityOnHand: item.isTopping ? 200 : 100, // More stock for toppings
+      reorderLevel: item.isTopping ? 50 : 20,
+      updatedAt: new Date()
+    }));
   }
 
   // Mock Prisma methods
