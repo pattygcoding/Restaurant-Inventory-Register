@@ -1,5 +1,23 @@
 # POS Register + Inventory System
 
+[![Angular](https://img.shields.io/badge/Angular-0F0F11?style=for-the-badge&logo=angular&logoColor=DD0031)](https://angular.dev/)
+[![Angular Material](https://img.shields.io/badge/Angular%20Material-757575?style=for-the-badge&logo=angular&logoColor=white)](https://material.angular.io/)
+[![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com/)
+[![RxJS](https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)](https://rxjs.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Zod](https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge&logo=zod&logoColor=white)](https://zod.dev/)
+[![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
+[![argon2id](https://img.shields.io/badge/argon2id-35495E?style=for-the-badge&logo=auth0&logoColor=white)](https://github.com/ranisalt/node-argon2)
+[![CORS](https://img.shields.io/badge/CORS-FF6F61?style=for-the-badge&logo=security&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+[![ES Modules](https://img.shields.io/badge/ES%20Modules-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+[![Morgan](https://img.shields.io/badge/Morgan-4B8BBE?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/morgan)
+[![Rate Limiting](https://img.shields.io/badge/Rate%20Limiter-6E4AFF?style=for-the-badge&logo=shield&logoColor=white)](https://www.npmjs.com/package/express-rate-limit)
+[![NPM](https://img.shields.io/badge/NPM-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
+
 A full-stack demo Point of Sale (POS) Register with Inventory Management system built with Angular 17+ and Node.js. This application demonstrates a professional-grade POS system with user authentication, role-based access control, inventory tracking, and mock payment processing.
 
 ## 🚀 Features
