@@ -67,14 +67,25 @@ A full-stack demo Point of Sale (POS) Register with Inventory Management system 
 
 ### Local Mode (Full-Stack)
 
-1. **Clone and setup environment**:
+1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd pos-register
+   git clone https://github.com/pattygcoding/Restaurant-Inventory-Register.git
+   cd Restaurant-Inventory-Register
+   ```
+
+2. **Install dependencies** (this will install for root, client, and server):
+   ```bash
+   npm install
+   ```
+   
+   > **Note**: Dependencies are not tracked in the repository. The first `npm install` will set up all required packages for the root project and workspaces (client/server). This may take a few minutes depending on your internet connection.
+
+3. **Setup environment variables**:
+   ```bash
    cp server/.env.example server/.env
    ```
 
-2. **Configure environment variables** in `server/.env`:
+4. **Configure environment variables** in `server/.env`:
    ```env
    DATABASE_URL="file:./dev.db"
    JWT_SECRET="your-super-secret-jwt-key-change-me-in-production"
@@ -85,28 +96,23 @@ A full-stack demo Point of Sale (POS) Register with Inventory Management system 
    CLIENT_URL="http://localhost:4200"
    ```
 
-3. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-4. **Setup database**:
+5. **Setup database**:
    ```bash
    npm run db:generate
    npm run db:migrate
    npm run db:seed
    ```
 
-5. **Start the application**:
+6. **Start the application**:
    ```bash
    npm run dev
    ```
 
-6. **Access the application**:
+7. **Access the application**:
    - Frontend: http://localhost:4200
    - Backend API: http://localhost:3000
 
-7. **Login with default credentials**:
+8. **Login with default credentials**:
    - **Admin**: `admin` / `ChangeMe123!`
    - **Cashier**: `cashier` / `Cashier123!`
 
